@@ -55,7 +55,6 @@ class Image:
         im_bin.set_pixels(np.zeros((self.H, self.W), dtype=np.uint8))
         #TODO:boucle imbriquees pour parcourir tous les pixels de l'image im_bin
         # et calculer l'image binaire
-        S = int(input("Donnez un chiffre entre 0 et 255"))
         for i in range (self.H) :
             for j in range (self.W) :
                 if im_bin[i,j] < S :
