@@ -47,7 +47,19 @@ class Image:
     #   on retourne une nouvelle image binarisee
     #==============================================================================
     def binarisation(self, S):
-        pass
+        #creation d'une image vide
+        im_bin = Image()
+        # affectation à l'image d'un tableau de pixelsde même taille
+        # que self dont les intensités, de type uint8 (8bits non signés),
+        # sont mises à 0
+        im_bin.set_pixels(np.zeros((self.H, self.W), dtype=np.uint8))
+        #TODO:boucle imbriquees pour parcourir tous les pixels de l'image im_bin
+        # et calculer l'image binaire
+        S = int(input("Donnez un chiffre entre 0 et 255"))
+        im_bin[im_bin > S] = 255
+        im_bin[im_bin < S] = 0
+        return im_bin
+        
 
 
     #==============================================================================
