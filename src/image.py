@@ -82,7 +82,7 @@ class Image:
             for j in range(self.W) :
                 if self.pixels[i][j] == 0 :
                     if i < lmin :
-                        l_min = i
+                        lmin = i
                     if i > lmax :
                         lmax = i
                     if j < cmin :
@@ -99,7 +99,7 @@ class Image:
     def resize(self, new_H, new_W):
         im_res = Image()
         a = resize(self.pixels, (new_H,new_W), 0) 
-        im_res.setpixels(np.uint8(a*255))
+        im_res.set_pixels(np.uint8(a*255))
         return im_res
 
     #==============================================================================
