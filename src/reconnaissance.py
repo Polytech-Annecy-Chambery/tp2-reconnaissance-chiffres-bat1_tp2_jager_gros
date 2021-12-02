@@ -22,5 +22,5 @@ def reconnaissance_chiffre(image, liste_modeles, S):
             sim = im_res.similitude(i)
             sim_indice = i
     
-    return sim_indice
+    return liste_modeles.index(i)
 
