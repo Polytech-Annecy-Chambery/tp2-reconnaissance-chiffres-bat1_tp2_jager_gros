@@ -57,14 +57,12 @@ class Image:
         # et calculer l'image binaire
         for i in range (self.H) :
             for j in range (self.W) :
-                if im_bin[i,j] < S :
-                    im_bin[i,j] = 0
+                if im_bin.self.pixels[i,j] < S :
+                    im_bin.self.pixels[i,j] = 0
                 else :
-                    im_bin[i,j] = 255
+                    im_bin.self.pixels[i,j] = 255
         return im_bin
         
-
-
     #==============================================================================
     # Dans une image binaire contenant une forme noire sur un fond blanc
     # la methode 'localisation' permet de limiter l'image au rectangle englobant
