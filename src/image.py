@@ -56,8 +56,12 @@ class Image:
         #TODO:boucle imbriquees pour parcourir tous les pixels de l'image im_bin
         # et calculer l'image binaire
         S = int(input("Donnez un chiffre entre 0 et 255"))
-        im_bin[im_bin > S] = 255
-        im_bin[im_bin < S] = 0
+        for i in range (self.H) :
+            for j in range (self.W) :
+                if im_bin[i,j] < S :
+                    im_bin[i,j] = 0
+                else :
+                    im_bin[i,j] = 255
         return im_bin
         
 
