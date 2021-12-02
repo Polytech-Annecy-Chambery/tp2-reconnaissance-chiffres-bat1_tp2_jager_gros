@@ -97,9 +97,10 @@ class Image:
     # Methode de redimensionnement d'image
     #==============================================================================
     def resize(self, new_H, new_W):
-        im_retaille = Image()
-        im_retaille = resize(self.pixels, (new_H,new_W), 0) 
-        return im_retaille
+        im_res = Image()
+        a = resize(self.pixels, (new_H,new_W), 0) 
+        im_res.setpixels(np.uint8(a*255))
+        return im_res
 
     #==============================================================================
     # Methode de mesure de similitude entre l'image self et un modele im
