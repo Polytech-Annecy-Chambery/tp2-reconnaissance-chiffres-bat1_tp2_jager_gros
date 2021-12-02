@@ -57,7 +57,7 @@ class Image:
         # et calculer l'image binaire
         for i in range (self.H) :
             for j in range (self.W) :
-                if self.pixels[i,j] < S :
+                if self.pixels[i,j] <= S :
                     im_bin.pixels[i,j] = 0
                 else :
                     im_bin.pixels[i,j] = 255
@@ -72,8 +72,32 @@ class Image:
     #   on retourne une nouvelle image recadree
     #==============================================================================
     def localisation(self):
-        pass
-
+        for i in range (self.W) :
+            for j in range (self.H) :
+                lmax = 0
+                if self.pixels[i,j] == 255 :
+                    lmax = i
+                    
+        for j in range (self.W) :
+            for i in range (self.H) :
+                cmax = 0
+                if self.pixels[i,j] == 255 :
+                    cmax = j
+        
+        for i in range(self.W, 0, -1) :
+            for j in range (self.H, 0, -1) :
+                lmin = 0
+                if self.pixels[i,j] == 255 :
+                    lmin = i
+        
+        for j in range(self.H, 0, -1) :
+            for i in range (self.W, 0, -1) :
+                cmin = 0
+                if self.pixels[i,j] == 255 :
+                    cmin = j
+                
+        imagecentree = self.pixels[lmin-1:lmax+1 ,cmin-1:cmax+1]
+    
     #==============================================================================
     # Methode de redimensionnement d'image
     #==============================================================================
