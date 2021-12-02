@@ -57,10 +57,10 @@ class Image:
         # et calculer l'image binaire
         for i in range (self.H) :
             for j in range (self.W) :
-                if self.pixels[i,j] <= S :
-                    im_bin.pixels[i,j] = 0
-                else :
+                if self.pixels[i,j] >= S :
                     im_bin.pixels[i,j] = 255
+                else :
+                    im_bin.pixels[i,j] = 0
         return im_bin
         
     #==============================================================================
@@ -72,26 +72,26 @@ class Image:
     #   on retourne une nouvelle image recadree
     #==============================================================================
     def localisation(self):
-        for i in range (self.W) :
-            for j in range (self.H) :
+        for i in range (self.W -1) :
+            for j in range (self.H -1) :
                 lmax = 0
                 if self.pixels[i,j] == 255 :
                     lmax = i
                     
-        for j in range (self.W) :
-            for i in range (self.H) :
+        for j in range (self.W -1) :
+            for i in range (self.H -1) :
                 cmax = 0
                 if self.pixels[i,j] == 255 :
                     cmax = j
         
-        for i in range(self.W, 0, -1) :
-            for j in range (self.H, 0, -1) :
+        for i in range(self.W -1, 0, -1) :
+            for j in range (self.H -1, 0, -1) :
                 lmin = 0
                 if self.pixels[i,j] == 255 :
                     lmin = i
         
-        for j in range(self.H, 0, -1) :
-            for i in range (self.W, 0, -1) :
+        for j in range(self.H - 1, 0, -1) :
+            for i in range (self.W - 1, 0, -1) :
                 cmin = 0
                 if self.pixels[i,j] == 255 :
                     cmin = j
